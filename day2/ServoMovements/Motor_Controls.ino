@@ -94,9 +94,10 @@ void servoFocusRight(){
 
 void bouncyServo(){
   int dur = 100; //duration is 100 loops
+  int bounce= 30;
   for (int pos=0; pos<dur; pos++){
     //move servo from 0 and 140 degrees forward
-    myServo.write(Easing::easeInOutCubic(pos, 0, 140, dur));
+    myservo.write(Easing::easeInOutCubic(pos, 0, 140, dur));
     delay(15); //wait for the servo to move
   }
   
@@ -104,7 +105,7 @@ void bouncyServo(){
   
   for (int pos=0; pos<dur; pos++){
     //move servo -140 degrees from position 140 (back to 0)
-    myServo.write(Easing::easeOutBounce(pos, 140, -140, dur));
+    myservo.write(Easing::easeOutBounce(pos, 140, -140, dur));
     delay(15);
   }
 }
