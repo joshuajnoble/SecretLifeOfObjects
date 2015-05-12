@@ -1,4 +1,3 @@
-
 import ddf.minim.analysis.*;
 import ddf.minim.*;
 import de.looksgood.ani.*;
@@ -42,11 +41,11 @@ void setup()
   
   // make an audio in
   in = minim.getLineIn();
-  in.enableMonitoring();
+  //in.enableMonitoring();
   
   // make an FFT
   fft = new FFT( in.bufferSize(), in.sampleRate() );
-  Ani.init(this);
+  Ani.init(this); // start and this is your sketch
   
 }
 

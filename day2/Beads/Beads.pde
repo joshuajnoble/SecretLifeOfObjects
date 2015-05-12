@@ -1,4 +1,5 @@
 import beads.*;
+
 // create our AudioContext, which will oversee audio
 // input/output
 AudioContext ac;
@@ -9,6 +10,7 @@ WavePlayer wp;
 Gain g;
 Glide gainGlide;
 Glide frequencyGlide;
+
 void setup()
 {
  size(400, 300);

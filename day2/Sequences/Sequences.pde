@@ -76,16 +76,16 @@ void draw() {
   colorMode(HSB, 100);
  
   pushMatrix();
-  translate(x,y); // translate instead of drawing in a particular place so that we can rotate
-  rotate(r); // spin the world
-  fill(hue, 100, 100);
-  rect(0, 0, w, h); // why draw at 0,0? Because we're transforming so we can rotate
+    translate(x,y); // translate instead of drawing in a particular place so that we can rotate
+    rotate(r); // spin the world
+    fill(hue, 100, 100);
+    rect(0, 0, w, h); // why draw at 0,0? Because we're transforming so we can rotate
   popMatrix();
 }
 
 // pause and resume animation by pressing SPACE
 // or press "s" to start the sequence
-void mousePressed() {
+void mousePressed() { 
   if (seq.isEnded())
   { 
     // start the whole sequence
