@@ -9,7 +9,7 @@ int minAngle=55;
 int maxAngle=125;
 
 // declare a variable that we will use to call the different movement patterns
-int actions=24
+int actions=2;
 void setup() {
   // attach it to one of the PWM ports
   myservo.attach(9);
