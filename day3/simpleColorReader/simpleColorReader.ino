@@ -1,5 +1,5 @@
 // Define colour sensor LED pins
-int ledArray[] = {2,3,4};
+int ledArray[] = {3,5,6};
 
 // boolean to know if the balance has been set
 boolean balanceSet = false;
@@ -20,9 +20,9 @@ int avgRead;
 void setup(){
  
   //setup the outputs for the colour sensor
-  pinMode(2,OUTPUT);
   pinMode(3,OUTPUT);
-  pinMode(4,OUTPUT);
+  pinMode(5,OUTPUT);
+  pinMode(6,OUTPUT);
  
   //begin serial communication
   Serial.begin(9600);
@@ -35,6 +35,8 @@ void setup(){
 void loop()
 {
     checkColour();
+    printColour();
+    delay(1000);
 }
 
 void checkBalance(){
@@ -85,8 +87,6 @@ void checkColour(){
      delay(100);                      //delay to allow CdS to stabalize, they are slow
      getReading(5);                  //take a reading however many times
      colourArray[i] = avgRead;        //set the current colour in the array to the average reading
-     float greyDiff = whiteArray[i] - blackArray[i];                    //the highest possible return minus the lowest returns the area for values in between
-     colourArray[i] = (colourArray[i] - blackArray[i])/(greyDiff)*255; //the reading returned minus the lowest value divided by the possible range multiplied by 255 will give us a value roughly between 0-255 representing the value for the current reflectivity(for the colour it is exposed to) of what is being scanned
      digitalWrite(ledArray[i],LOW);   //turn off the current LED
      delay(100);
   }
@@ -102,4 +102,13 @@ void getReading(int times){
   }
   //calculate the average and set it
   avgRead = (tally)/times;
+}
+
+void printColour(){
+  Serial.print("R = ");
+  Serial.println(int(colourArray[0]));
+  Serial.print("G = ");
+  Serial.println(int(colourArray[1]));
+  Serial.print("B = ");
+  Serial.println(int(colourArray[2]));
 }
